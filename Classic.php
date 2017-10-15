@@ -43,7 +43,15 @@ class Classic extends Cuenta{
       }
 
    }
-
+   public function getBalance(){
+      return $this ->balance;
+   }
+   public function getCbu(){
+      return $this ->cbu;
+   }
+   public function getFechaUltimoMov(){
+      return $this ->fechaUltimoMov;
+   }
 }
 
 ?>
