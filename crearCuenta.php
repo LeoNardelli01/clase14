@@ -18,7 +18,10 @@ $cuentaClassic -> acreditar(2000);
 
 var_dump($cuentaClassic);
 
-$cuentaClassic -> debitar(550, "Cajero Automatico");
+$cuentaClassic -> debitar(550, "caja");
 
 var_dump($cuentaClassic);
+
+$cuentaClassic -> acreditar(200);
+var_dump($cuentaClassic); 
 ?>
