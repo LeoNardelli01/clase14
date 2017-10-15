@@ -7,7 +7,7 @@ abstract class Cuenta{
 
    protected abstract function debitar($monto, $tipoCajero);
    protected abstract function acreditar($monto);
-   
+
    public function fechaHora(){
 
       $getTiempo = getdate();

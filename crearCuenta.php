@@ -14,14 +14,14 @@ echo "<pre>";
 
 var_dump($cuentaClassic);
 
-$cuentaClassic -> acreditar(2000);
+$cuentaClassic -> acreditar(1000);
 
 var_dump($cuentaClassic);
 
-$cuentaClassic -> debitar(550, "caja");
+$cuentaClassic -> debitar(1900, "link");
 
 var_dump($cuentaClassic);
 
 $cuentaClassic -> acreditar(200);
-var_dump($cuentaClassic); 
+var_dump($cuentaClassic);
 ?>
