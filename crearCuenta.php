@@ -7,50 +7,19 @@ require_once('Gold.php');
 require_once('Platinum.php');
 require_once('Black.php');
 
-//echo "<pre>";
-/*
-echo "---CLASSIC---";
-echo "<br><br>";
-
-$cuentaClassic = new Classic();
-var_dump($cuentaClassic);
-$cuentaClassic -> acreditar(2500);
-var_dump($cuentaClassic);
-$cuentaClassic -> debitar(300, "caja");
-var_dump($cuentaClassic);
-
-echo "---GOLD---";
-echo "<br><br>";
-
-$cuentaGold = new Gold();
-var_dump($cuentaGold);
-$cuentaGold -> acreditar(11728);
-var_dump($cuentaGold);
-$cuentaGold -> debitar(300, "caja");
-var_dump($cuentaGold);
-
-echo "---PLATINUM---";
-echo "<br><br>";
-
-$cuentaPlatinum = new Platinum();
-var_dump($cuentaPlatinum);
-$cuentaPlatinum -> acreditar(15000);
-var_dump($cuentaPlatinum);
-$cuentaPlatinum -> debitar(300, "banelco");
-var_dump($cuentaPlatinum);
-
-echo "---BLACK---";
-echo "<br><br>";
-
-$cuentaBlack = new Black();
-var_dump($cuentaBlack);
-$cuentaBlack -> acreditar(999999);
-var_dump($cuentaBlack);
-*/
 $cuentaClassic;
 $cuentaGold;
 $cuentaPlatinum;
 $cuentaBlack;
+
+//funciones
+ function imprimir($datos){
+   echo "<label for=''>Datos de Cuenta: </label><br><br>";
+   echo "Tipo de Cuenta: " . get_class($datos) . "<br><br>";
+   echo "CBU: " . $datos -> getCbu() . "<br>";
+   echo "Balance : " . $datos -> getBalance() . "<br>";
+   echo "Fecha Ultimo Movimiento: " . $datos -> getFechaUltimoMov() . "<br>";
+}
 
 
 if (isset($_POST['crearCuenta'])) {
@@ -59,23 +28,27 @@ if (isset($_POST['crearCuenta'])) {
    switch ($_POST['cuenta']) {
       case 'classic':
          $cuentaClassic = new Classic();
-         $cuentaClassic -> acreditar(11000);
+         //$cuentaClassic -> acreditar(11000);
 
          break;
       case 'gold':
          $cuentaGold = new Gold();
          break;
       case 'platinum':
-         $cuentaPatinum = new Platinum();
+         $cuentaPlatinum = new Platinum();
          break;
       case 'black':
          $cuentaBlack = new Black();
          break;
 
    }
+   if(isset($_POST['btnAcreditar'])){
+      echo "aprete boton acreditar";
+   }
 }
-
-var_dump($_POST);
+//echo "<pre>";
+//var_dump($_POST);
+//var_dump($cuentaClassic);
 
 ?>
 
@@ -146,15 +119,21 @@ var_dump($_POST);
          <?php
 
          if(isset($_POST['crearCuenta'])){
-
-            echo "<label for=''>Datos de Cuenta: </label><br><br>";
-            echo "Tipo de Cuenta: " . get_class($cuentaClassic) . "<br><br>";
-            echo "CBU: " . $cuentaClassic -> getCbu() . "<br>";
-            echo "Balance : " . $cuentaClassic -> getBalance() . "<br>";
-            echo "Fecha Ultimo Movimiento: " . $cuentaClassic -> getFechaUltimoMov() . "<br>";
-
-            if(isset($_POST['acreditar'])){
-               echo "Probando acreditar";
+            $cuenta = $_POST['cuenta'];
+            //var_dump($cuenta);
+            switch ($cuenta) {
+               case 'classic':
+                  imprimir($cuentaClassic);
+                  break;
+               case 'gold':
+                  imprimir($cuentaGold);
+                  break;
+               case 'platinum':
+                  imprimir($cuentaPlatinum);
+                  break;
+               case 'black':
+                  imprimir($cuentaBlack);
+                  break;
             }
 
          }
