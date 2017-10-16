@@ -7,6 +7,9 @@ require_once('Gold.php');
 require_once('Platinum.php');
 require_once('Black.php');
 
+
+//INDEX
+
 $cuentaClassic;
 $cuentaGold;
 $cuentaPlatinum;
@@ -14,37 +17,36 @@ $cuentaBlack;
 
 //funciones
  function imprimir($datos){
-   echo "<label for=''>Datos de Cuenta: </label><br><br>";
-   echo "Tipo de Cuenta: " . get_class($datos) . "<br><br>";
-   echo "CBU: " . $datos -> getCbu() . "<br>";
-   echo "Balance : " . $datos -> getBalance() . "<br>";
+    echo "<br><br>";
+   echo "<label for=''>DATOS DE LA CUENTA: </label><br><br>";
+   echo "Tipo de Cuenta: " . get_class($datos) . "<br>";
+   echo "CBU: " . ($datos -> getCbu()) . "<br>";
+   echo "Balance : " . number_format($datos -> getBalance(),2,',','.' ) . "<br>";
    echo "Fecha Ultimo Movimiento: " . $datos -> getFechaUltimoMov() . "<br>";
 }
 
 
 if (isset($_POST['crearCuenta'])) {
-   //echo "<pre>";
-   //var_dump($_POST);
    switch ($_POST['cuenta']) {
       case 'classic':
          $cuentaClassic = new Classic();
-         //$cuentaClassic -> acreditar(11000);
 
          break;
       case 'gold':
          $cuentaGold = new Gold();
+
          break;
       case 'platinum':
          $cuentaPlatinum = new Platinum();
+
          break;
       case 'black':
          $cuentaBlack = new Black();
+
          break;
 
    }
-   if(isset($_POST['btnAcreditar'])){
-      echo "aprete boton acreditar";
-   }
+
 }
 //echo "<pre>";
 //var_dump($_POST);
@@ -103,11 +105,12 @@ if (isset($_POST['crearCuenta'])) {
                   <option value="classic">Classic</option>
                   <option value="gold">Gold</option>
                   <option value="platinum">Platinum</option>
-                  <option value="black">BLack</option>
+                  <option value="black">Black</option>
 
             </select>
             <input type="submit" name="crearCuenta" value="Crear Cuenta">
             <br>
+            <!--
             Acreditar Saldo : <input type="number" name="acreditar" value="">
             <input type="submit" name="btnAcreditar" value="Acreditar">
             <br>
@@ -115,7 +118,7 @@ if (isset($_POST['crearCuenta'])) {
             <input type="submit" name="btnDebitar" value="Debitar">
          </form>
       </div>
-      <div class="mostrar-datos">
+      <div class="mostrar-datos">-->
          <?php
 
          if(isset($_POST['crearCuenta'])){
@@ -123,18 +126,45 @@ if (isset($_POST['crearCuenta'])) {
             //var_dump($cuenta);
             switch ($cuenta) {
                case 'classic':
+               //aca hacer las pruebas de movimientos bancarios
                   imprimir($cuentaClassic);
+                  $cuentaClassic -> acreditar(10000);
+                  imprimir($cuentaClassic);
+                  $cuentaClassic -> debitar(1000, 'link');
+                  imprimir($cuentaClassic);
+                  echo "<br><br>";
+
                   break;
                case 'gold':
                   imprimir($cuentaGold);
+                  $cuentaGold -> acreditar(10000);
+                  imprimir($cuentaGold);
+                  $cuentaGold -> debitar(1000, 'banelco');
+                  imprimir($cuentaGold);
+                  $cuentaGold -> acreditar(1000);
+                  imprimir($cuentaGold);
+                  echo "<br><br>";
                   break;
                case 'platinum':
                   imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> acreditar(5000);
+                  imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> debitar(1000, 'banelco');
+                  imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> acreditar(1000);
+                  imprimir($cuentaPlatinum);
+                  echo "<br><br>";
                   break;
                case 'black':
                   imprimir($cuentaBlack);
+                  $cuentaBlack -> acreditar(100000);
+                  imprimir($cuentaBlack);
+                  $cuentaBlack -> debitar(1000, 'banelco');
+                  imprimir($cuentaBlack);
+                  echo "<br><br>";
                   break;
             }
+
 
          }
          ?>

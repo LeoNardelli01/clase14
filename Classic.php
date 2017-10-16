@@ -37,7 +37,7 @@ class Classic extends Cuenta{
          }
          $this->fechaUltimoMov = parent :: fechaHora();
       }else{
-         echo "Saldo insuficiente. Tu saldo es de $this->balance";
+         echo "Saldo insuficiente. Tu saldo es de $this->balance <br><br>";
       }
 
    }
