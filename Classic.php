@@ -1,7 +1,5 @@
 <?php
 require_once('Cuenta.php');
-//require_once('ObtenerFecha.php');
-
 
 class Classic extends Cuenta{
 
