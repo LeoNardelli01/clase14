@@ -3,14 +3,6 @@ require_once('Cuenta.php');
 
 class Classic extends Cuenta{
 
-   private $balance;
-   private $cbu;
-   private $fechaUltimoMov;
-
-   public function __construct(){
-      $this ->cbu = mt_rand();
-   }
-
    public function acreditar($monto){
       //cuando acreditamos el banco se queda con un 5%
       //por eso multiplico el monto por 0.95
@@ -41,6 +33,7 @@ class Classic extends Cuenta{
       }
 
    }
+   /*
    public function getBalance(){
       return $this ->balance;
    }
@@ -50,6 +43,7 @@ class Classic extends Cuenta{
    public function getFechaUltimoMov(){
       return $this ->fechaUltimoMov;
    }
+   */
 }
 
 ?>

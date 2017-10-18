@@ -7,6 +7,7 @@ abstract Class Cliente{
   protected $email;
   protected $pass;
 
+
 //Creo una función constructora con sus parámetros necesarios
 
   public function __construct($email,$pass){

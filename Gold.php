@@ -2,13 +2,7 @@
 require_once('Cuenta.php');
 
 class Gold extends Cuenta{
-   private $balance;
-   private $cbu;
-   private $fechaUltimoMov;
-
-   public function __construct(){
-      $this ->cbu = mt_rand();
-   }
+   
 
    public function acreditar($monto){
       if($monto >=25000){

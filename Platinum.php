@@ -2,13 +2,6 @@
 require_once('Cuenta.php');
 
 class Platinum extends Cuenta{
-   private $balance;
-   private $cbu;
-   private $fechaUltimoMov;
-
-   public function __construct(){
-      $this ->cbu = mt_rand();
-   }
 
    public function acreditar($monto){
       $this->balance += $monto;

@@ -1,29 +1,9 @@
 <?php
-require_once('Persona.php');
-require_once('Pyme.php');
-require_once('Multinacional.php');
-require_once('Classic.php');
-require_once('Gold.php');
-require_once('Platinum.php');
-require_once('Black.php');
 
-
-//INDEX
-
-$cuentaClassic;
-$cuentaGold;
-$cuentaPlatinum;
-$cuentaBlack;
-
-//funciones
- function imprimir($datos){
-    echo "<br><br>";
-   echo "<label for=''>DATOS DE LA CUENTA: </label><br><br>";
-   echo "Tipo de Cuenta: " . get_class($datos) . "<br>";
-   echo "CBU: " . ($datos -> getCbu()) . "<br>";
-   echo "Balance : " . number_format($datos -> getBalance(),2,',','.' ) . "<br>";
-   echo "Fecha Ultimo Movimiento: " . $datos -> getFechaUltimoMov() . "<br>";
-}
+//Funcion para cargar las clases automaticamente
+spl_autoload_register(function ($nombre_clase) {
+    include $nombre_clase . '.php';
+});
 
 
 if (isset($_POST['crearCuenta'])) {
@@ -127,40 +107,40 @@ if (isset($_POST['crearCuenta'])) {
             switch ($cuenta) {
                case 'classic':
                //aca hacer las pruebas de movimientos bancarios
-                  imprimir($cuentaClassic);
+                  $cuentaClassic -> imprimir($cuentaClassic);
                   $cuentaClassic -> acreditar(10000);
-                  imprimir($cuentaClassic);
+                  $cuentaClassic -> imprimir($cuentaClassic);
                   $cuentaClassic -> debitar(1000, 'link');
-                  imprimir($cuentaClassic);
+                  $cuentaClassic -> imprimir($cuentaClassic);
                   echo "<br><br>";
 
                   break;
                case 'gold':
-                  imprimir($cuentaGold);
+                  //imprimir($cuentaGold);
                   $cuentaGold -> acreditar(10000);
-                  imprimir($cuentaGold);
+                  $cuentaGold -> imprimir($cuentaGold);
                   $cuentaGold -> debitar(1000, 'banelco');
-                  imprimir($cuentaGold);
+                  $cuentaGold -> imprimir($cuentaGold);
                   $cuentaGold -> acreditar(1000);
-                  imprimir($cuentaGold);
+                  $cuentaGold -> imprimir($cuentaGold);
                   echo "<br><br>";
                   break;
                case 'platinum':
-                  imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
                   $cuentaPlatinum -> acreditar(5000);
-                  imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
                   $cuentaPlatinum -> debitar(1000, 'banelco');
-                  imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
                   $cuentaPlatinum -> acreditar(1000);
-                  imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
                   echo "<br><br>";
                   break;
                case 'black':
-                  imprimir($cuentaBlack);
+                  $cuentaBlack -> imprimir($cuentaBlack);
                   $cuentaBlack -> acreditar(100000);
-                  imprimir($cuentaBlack);
+                  $cuentaBlack -> imprimir($cuentaBlack);
                   $cuentaBlack -> debitar(1000, 'banelco');
-                  imprimir($cuentaBlack);
+                  $cuentaBlack -> imprimir($cuentaBlack);
                   echo "<br><br>";
                   break;
             }
