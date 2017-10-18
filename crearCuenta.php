@@ -90,15 +90,7 @@ if (isset($_POST['crearCuenta'])) {
             </select>
             <input type="submit" name="crearCuenta" value="Crear Cuenta">
             <br>
-            <!--
-            Acreditar Saldo : <input type="number" name="acreditar" value="">
-            <input type="submit" name="btnAcreditar" value="Acreditar">
-            <br>
-            Debitar Saldo : <input type="number" name="debitar" value="">
-            <input type="submit" name="btnDebitar" value="Debitar">
-         </form>
-      </div>
-      <div class="mostrar-datos">-->
+
          <?php
 
          if(isset($_POST['crearCuenta'])){
@@ -107,16 +99,20 @@ if (isset($_POST['crearCuenta'])) {
             switch ($cuenta) {
                case 'classic':
                //aca hacer las pruebas de movimientos bancarios
-                  $cliente1 = new Persona($cuentaClassic, "leo@gmail.com", "123", "Leonel", "Nardelli", "31175292", "3/9/1984" );
+                  $persona = new Persona($cuentaClassic, "leo@gmail.com", "123", "Leonel", "Nardelli", "31175292", "3/9/1984" );
+                  $pyme = new Pyme($cuentaClassic, "piccardelli@gmail.com", "123", "123456", "Piccardelli");
+                  $multinacional = new Multinacional($cuentaClassic, "picca@gmail.com", "!2345", "12333333", "Ricosur");
                   $cuentaClassic -> imprimir();
-                  $cuentaClassic -> acreditar(10000);
+                  $cuentaClassic -> acreditar(800);
                   $cuentaClassic -> imprimir();
                   $cuentaClassic -> debitar(1000, 'link');
                   $cuentaClassic -> imprimir();
                   echo "<br><br>";
                   echo "<pre>";
-                  var_dump($cliente1);
-                  
+                  var_dump($persona);
+                  var_dump($pyme);
+                  var_dump($multinacional);
+
 
                   break;
                case 'gold':

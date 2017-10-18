@@ -32,5 +32,5 @@ abstract Class Cliente{
   public function getPass(){
     return $this->pass;
   }
-
-  }
+  
+}

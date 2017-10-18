@@ -3,7 +3,7 @@ require_once('Cuenta.php');
 
 class Black extends Cuenta{
 
-   
+
    public function acreditar($monto){
       if ($monto >= 1000000) {
          $this->balance += ($monto * 0.96);
@@ -32,7 +32,7 @@ class Black extends Cuenta{
          }
          $this->fechaUltimoMov = parent :: fechaHora();
       }else{
-         echo "Saldo insuficiente. Tu saldo es de $this->balance";
+         echo "Saldo insuficiente. Tu saldo es de $this->balance <br><br>";
       }
 
    }
