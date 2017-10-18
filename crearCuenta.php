@@ -107,40 +107,40 @@ if (isset($_POST['crearCuenta'])) {
             switch ($cuenta) {
                case 'classic':
                //aca hacer las pruebas de movimientos bancarios
-                  $cuentaClassic -> imprimir($cuentaClassic);
+                  $cuentaClassic -> imprimir();
                   $cuentaClassic -> acreditar(10000);
-                  $cuentaClassic -> imprimir($cuentaClassic);
+                  $cuentaClassic -> imprimir();
                   $cuentaClassic -> debitar(1000, 'link');
-                  $cuentaClassic -> imprimir($cuentaClassic);
+                  $cuentaClassic -> imprimir();
                   echo "<br><br>";
 
                   break;
                case 'gold':
-                  //imprimir($cuentaGold);
+                  $cuentaGold -> imprimir();
                   $cuentaGold -> acreditar(10000);
-                  $cuentaGold -> imprimir($cuentaGold);
+                  $cuentaGold -> imprimir();
                   $cuentaGold -> debitar(1000, 'banelco');
-                  $cuentaGold -> imprimir($cuentaGold);
+                  $cuentaGold -> imprimir();
                   $cuentaGold -> acreditar(1000);
-                  $cuentaGold -> imprimir($cuentaGold);
+                  $cuentaGold -> imprimir();
                   echo "<br><br>";
                   break;
                case 'platinum':
-                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir();
                   $cuentaPlatinum -> acreditar(5000);
-                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir();
                   $cuentaPlatinum -> debitar(1000, 'banelco');
-                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir();
                   $cuentaPlatinum -> acreditar(1000);
-                  $cuentaPlatinum -> imprimir($cuentaPlatinum);
+                  $cuentaPlatinum -> imprimir();
                   echo "<br><br>";
                   break;
                case 'black':
-                  $cuentaBlack -> imprimir($cuentaBlack);
+                  $cuentaBlack -> imprimir();
                   $cuentaBlack -> acreditar(100000);
-                  $cuentaBlack -> imprimir($cuentaBlack);
+                  $cuentaBlack -> imprimir();
                   $cuentaBlack -> debitar(1000, 'banelco');
-                  $cuentaBlack -> imprimir($cuentaBlack);
+                  $cuentaBlack -> imprimir();
                   echo "<br><br>";
                   break;
             }

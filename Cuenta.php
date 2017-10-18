@@ -22,13 +22,13 @@ abstract class Cuenta{
    }
 
 
-   public function imprimir($datos){
+   public function imprimir(){
       echo "<br><br>";
      echo "<label for=''>DATOS DE LA CUENTA: </label><br><br>";
-     echo "Tipo de Cuenta: " . get_class($datos) . "<br>";
-     echo "CBU: " . ($datos -> getCbu()) . "<br>";
-     echo "Balance : " . number_format($datos -> getBalance(),2,',','.' ) . "<br>";
-     echo "Fecha Ultimo Movimiento: " . $datos -> getFechaUltimoMov() . "<br>";
+     echo "Tipo de Cuenta: " . get_class($this) . "<br>";
+     echo "CBU: " . ($this -> getCbu()) . "<br>";
+     echo "Balance : " . number_format($this -> getBalance(),2,',','.' ) . "<br>";
+     echo "Fecha Ultimo Movimiento: " . $this -> getFechaUltimoMov() . "<br>";
   }
 
   public function getCbu(){
