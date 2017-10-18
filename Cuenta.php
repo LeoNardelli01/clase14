@@ -4,6 +4,7 @@ abstract class Cuenta{
    protected $cbu;
    protected $balance;
    protected $fechaUltimoMov;
+   //protected $cuenta;
 
    protected abstract function debitar($monto, $tipoCajero);
    protected abstract function acreditar($monto);
@@ -34,9 +35,11 @@ abstract class Cuenta{
   public function getCbu(){
     return $this ->cbu;
   }
+
   public function getBalance(){
     return $this->balance;
   }
+
   public function getFechaUltimoMov(){
      return $this->fechaUltimoMov;
  }

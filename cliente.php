@@ -10,7 +10,7 @@ abstract Class Cliente{
 
 //Creo una función constructora con sus parámetros necesarios
 
-  public function __construct($email,$pass){
+  public function __construct(Cuenta $cuenta, $email, $pass){
 
     $this->email = $email;
     $this->pass = $pass;

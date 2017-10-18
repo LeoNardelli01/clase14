@@ -3,6 +3,8 @@ require_once('Cuenta.php');
 
 class Classic extends Cuenta{
 
+
+
    public function acreditar($monto){
       //cuando acreditamos el banco se queda con un 5%
       //por eso multiplico el monto por 0.95
@@ -33,17 +35,7 @@ class Classic extends Cuenta{
       }
 
    }
-   /*
-   public function getBalance(){
-      return $this ->balance;
-   }
-   public function getCbu(){
-      return $this ->cbu;
-   }
-   public function getFechaUltimoMov(){
-      return $this ->fechaUltimoMov;
-   }
-   */
+   
 }
 
 ?>

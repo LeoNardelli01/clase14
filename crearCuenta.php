@@ -107,12 +107,16 @@ if (isset($_POST['crearCuenta'])) {
             switch ($cuenta) {
                case 'classic':
                //aca hacer las pruebas de movimientos bancarios
+                  $cliente1 = new Persona($cuentaClassic, "leo@gmail.com", "123", "Leonel", "Nardelli", "31175292", "3/9/1984" );
                   $cuentaClassic -> imprimir();
                   $cuentaClassic -> acreditar(10000);
                   $cuentaClassic -> imprimir();
                   $cuentaClassic -> debitar(1000, 'link');
                   $cuentaClassic -> imprimir();
                   echo "<br><br>";
+                  echo "<pre>";
+                  var_dump($cliente1);
+                  
 
                   break;
                case 'gold':

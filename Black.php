@@ -3,6 +3,7 @@ require_once('Cuenta.php');
 
 class Black extends Cuenta{
 
+   
    public function acreditar($monto){
       if ($monto >= 1000000) {
          $this->balance += ($monto * 0.96);

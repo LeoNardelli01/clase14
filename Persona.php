@@ -2,13 +2,15 @@
 require_once('cliente.php');
 
 class Persona extends Cliente{
-   
+
    Private $nombre;
    Private $apellido;
    Private $documento;
    Private $nacimiento;
 
-   public function __construct($nombre, $apellido, $documento, $nacimiento){
+   public function __construct(Cuenta $cuenta, $email, $pass, $nombre, $apellido, $documento, $nacimiento){
+      parent::__construct($cuenta, $email, $pass);
+
       $this->nombre = $nombre;
       $this->apellido = $apellido;
       $this->documento = $documento;
