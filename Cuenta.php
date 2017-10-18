@@ -2,7 +2,7 @@
 
 abstract class Cuenta{
    protected $cbu;
-   protected $balance = 0;
+   protected $balance;
    protected $fechaUltimoMov;
 
    protected abstract function debitar($monto, $tipoCajero);

@@ -6,7 +6,7 @@ abstract Class Cliente{
 
   protected $email;
   protected $pass;
-
+  protected $cuentaAsociada;
 
 //Creo una función constructora con sus parámetros necesarios
 
@@ -14,6 +14,7 @@ abstract Class Cliente{
 
     $this->email = $email;
     $this->pass = $pass;
+    $this->cuentaAsociada = $cuenta;
   }
 
   //Creo funciones públicas para setear el valor pasado como parámetro al ejecutar la función constructora, como valor de la propiedad del objeto instanciado
