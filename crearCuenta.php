@@ -120,8 +120,7 @@ if (isset($_POST['crearCuenta'])) {
                                              "Nardelli",
                                              "31175292",
                                              "3/9/1984" );
-                                             var_dump($persona);
-                                             die;
+
                      break;
 
                      case 'pyme':
@@ -141,6 +140,7 @@ if (isset($_POST['crearCuenta'])) {
 
                      break;
                }
+               break;
                case 'gold':
                   switch ($tipoCliente) {
                      case 'persona':
@@ -171,6 +171,7 @@ if (isset($_POST['crearCuenta'])) {
 
                      break;
                }
+               break;
                case 'platinum':
                   switch ($tipoCliente) {
                      case 'persona':
@@ -201,6 +202,7 @@ if (isset($_POST['crearCuenta'])) {
 
                      break;
                }
+               break;
                case 'black':
                   switch ($tipoCliente) {
                      case 'persona':
