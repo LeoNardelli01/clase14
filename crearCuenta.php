@@ -1,38 +1,10 @@
 <?php
-session_start();
+
 //Funcion para cargar las clases automaticamente
 spl_autoload_register(function ($nombre_clase) {
     include $nombre_clase . '.php';
 });
 
-/*
-if (isset($_POST['crearCuenta'])) {
-   //$_SESSION = $_POST;
-   //var_dump($_SESSION);
-   switch ($_POST['cuenta']) {
-      case 'classic':
-         $cuentaClassic = new Classic();
-
-         break;
-      case 'gold':
-         $cuentaGold = new Gold();
-
-         break;
-      case 'platinum':
-         $cuentaPlatinum = new Platinum();
-
-         break;
-      case 'black':
-         $cuentaBlack = new Black();
-
-         break;
-
-   }
-
-}
-//echo "<pre>";
-//var_dump($cuentaClassic);
-*/
 ?>
 
 <!DOCTYPE html>
@@ -235,7 +207,7 @@ if (isset($_POST['crearCuenta'])) {
                   }
                }
 
-               //pruebas aca!!!!
+               // PRUEBAS ACA!!!
 
                echo "<pre>";
                if(isset($persona)){
@@ -243,15 +215,27 @@ if (isset($_POST['crearCuenta'])) {
                   echo $persona -> mostrar();
                   echo "<br>";
                   $persona -> getCuentaAsociada() -> imprimir();
+                  $persona -> getCuentaAsociada() -> acreditar(1000);
+                  $persona -> getCuentaAsociada() -> imprimir();
+                  $persona -> getCuentaAsociada() -> debitar(200, 'link');
+                  $persona -> getCuentaAsociada() -> imprimir();
                }elseif (isset($pyme)) {
                   echo "<br>";
                   echo $pyme -> mostrar();
                   echo "<br>";
                   $pyme -> getCuentaAsociada() -> imprimir();
+                  $pyme -> getCuentaAsociada() -> acreditar(1000);
+                  $pyme -> getCuentaAsociada() -> imprimir();
+                  $pyme -> getCuentaAsociada() -> debitar(200, 'link');
+                  $pyme -> getCuentaAsociada() -> imprimir();
                }else{
                   echo "<br>";
                   echo $multinacional -> mostrar();
                   echo "<br>";
+                  $multinacional -> getCuentaAsociada() -> imprimir();
+                  $multinacional -> getCuentaAsociada() -> acreditar(1000);
+                  $multinacional -> getCuentaAsociada() -> imprimir();
+                  $multinacional -> getCuentaAsociada() -> debitar(200, 'link');
                   $multinacional -> getCuentaAsociada() -> imprimir();
                }
 
