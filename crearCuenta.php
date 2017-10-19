@@ -5,7 +5,7 @@ spl_autoload_register(function ($nombre_clase) {
     include $nombre_clase . '.php';
 });
 
-
+/*
 if (isset($_POST['crearCuenta'])) {
    //$_SESSION = $_POST;
    //var_dump($_SESSION);
@@ -32,7 +32,7 @@ if (isset($_POST['crearCuenta'])) {
 }
 //echo "<pre>";
 //var_dump($cuentaClassic);
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -80,7 +80,7 @@ if (isset($_POST['crearCuenta'])) {
          </div>
       </div>
       <div class="formulario">
-         <form class="" action="mostrarContenido.php" method="post">
+         <form class="" action="crearCuenta.php" method="post">
             Tipo de Cliente: <select class="" name="tipoCliente">
                   <option value="">Seleccione</option>
                   <option value="persona">Persona</option>
@@ -102,67 +102,158 @@ if (isset($_POST['crearCuenta'])) {
             <br>
 
          <?php
-         /*
+
          if(isset($_POST['crearCuenta'])){
             $cuenta = $_POST['cuenta'];
             $tipoCliente = $_POST['tipoCliente'];
-            $_SESSION['nombre'] = $_POST;
-            echo "<pre>";
-            var_dump($_SESSION);
-         //   header('Location: mostrarContenido.php');
+
 
             switch ($cuenta) {
                case 'classic':
-               //aca hacer las pruebas de movimientos bancarios
-                  $persona = new Persona($cuentaClassic, "leo@gmail.com", "123", "Leonel", "Nardelli", "31175292", "3/9/1984" );
-                  $pyme = new Pyme($cuentaClassic, "piccardelli@gmail.com", "123", "123456", "Piccardelli");
-                  $multinacional = new Multinacional($cuentaClassic, "picca@gmail.com", "!2345", "12333333", "Ricosur");
-                  $cuentaClassic -> imprimir();
-                  $cuentaClassic -> acreditar(800);
-                  $cuentaClassic -> imprimir();
-                  $cuentaClassic -> debitar(1000, 'link');
-                  $cuentaClassic -> imprimir();
-                  echo "<br><br>";
-                  echo "<pre>";
-                  var_dump($persona);
-                  var_dump($pyme);
-                  var_dump($multinacional);
-                  echo $persona-> mostrar() . "<br>";
-                  echo $pyme -> mostrar() . "<br>";
-                  echo $cuentaClassic-> mostrar() . "<br>";
-                  echo $multinacional -> mostrar() . "<br>";
 
-                  break;
+                  switch ($tipoCliente) {
+                     case 'persona':
+                        $persona = new Persona(new Classic,
+                                             "leo@gmail.com",
+                                             "123",
+                                             "Leonel",
+                                             "Nardelli",
+                                             "31175292",
+                                             "3/9/1984" );
+                                             var_dump($persona);
+                                             die;
+                     break;
+
+                     case 'pyme':
+                        $pyme = new Pyme(new Classic,
+                                       "piccardelli@gmail.com",
+                                       "123",
+                                       "123456",
+                                       "Piccardelli");
+                     break;
+
+                     case 'multinacional':
+                        $multinacional = new Multinacional(new Classic,
+                                                         "picca@gmail.com",
+                                                         "2345",
+                                                         "12333333",
+                                                         "Ricosur");
+
+                     break;
+               }
                case 'gold':
-                  $cuentaGold -> imprimir();
-                  $cuentaGold -> acreditar(10000);
-                  $cuentaGold -> imprimir();
-                  $cuentaGold -> debitar(1000, 'banelco');
-                  $cuentaGold -> imprimir();
-                  $cuentaGold -> acreditar(1000);
-                  $cuentaGold -> imprimir();
-                  echo "<br><br>";
-                  break;
+                  switch ($tipoCliente) {
+                     case 'persona':
+                        $persona = new Persona(new Gold,
+                                             "leo@gmail.com",
+                                             "123",
+                                             "Leonel",
+                                             "Nardelli",
+                                             "31175292",
+                                             "3/9/1984" );
+
+                     break;
+
+                     case 'pyme':
+                        $pyme = new Pyme(new Gold,
+                                       "piccardelli@gmail.com",
+                                       "123",
+                                       "123456",
+                                       "Piccardelli");
+                     break;
+
+                     case 'multinacional':
+                        $multinacional = new Multinacional(new Gold,
+                                                         "picca@gmail.com",
+                                                         "2345",
+                                                         "12333333",
+                                                         "Ricosur");
+
+                     break;
+               }
                case 'platinum':
-                  $cuentaPlatinum -> imprimir();
-                  $cuentaPlatinum -> acreditar(5000);
-                  $cuentaPlatinum -> imprimir();
-                  $cuentaPlatinum -> debitar(1000, 'banelco');
-                  $cuentaPlatinum -> imprimir();
-                  $cuentaPlatinum -> acreditar(1000);
-                  $cuentaPlatinum -> imprimir();
-                  echo "<br><br>";
-                  break;
+                  switch ($tipoCliente) {
+                     case 'persona':
+                        $persona = new Persona(new Platinum,
+                                             "leo@gmail.com",
+                                             "123",
+                                             "Leonel",
+                                             "Nardelli",
+                                             "31175292",
+                                             "3/9/1984" );
+
+                     break;
+
+                     case 'pyme':
+                        $pyme = new Pyme(new Platinum,
+                                       "piccardelli@gmail.com",
+                                       "123",
+                                       "123456",
+                                       "Piccardelli");
+                     break;
+
+                     case 'multinacional':
+                        $multinacional = new Multinacional(new Platinum,
+                                                         "picca@gmail.com",
+                                                         "2345",
+                                                         "12333333",
+                                                         "Ricosur");
+
+                     break;
+               }
                case 'black':
-                  $cuentaBlack -> imprimir();
-                  $cuentaBlack -> acreditar(100000);
-                  $cuentaBlack -> imprimir();
-                  $cuentaBlack -> debitar(1000, 'banelco');
-                  $cuentaBlack -> imprimir();
-                  echo "<br><br>";
-                  break;
-            }
-            */
+                  switch ($tipoCliente) {
+                     case 'persona':
+                        $persona = new Persona(new Black,
+                                             "leo@gmail.com",
+                                             "123",
+                                             "Leonel",
+                                             "Nardelli",
+                                             "31175292",
+                                             "3/9/1984" );
+
+                     break;
+
+                     case 'pyme':
+                        $pyme = new Pyme(new Black,
+                                       "piccardelli@gmail.com",
+                                       "123",
+                                       "123456",
+                                       "Piccardelli");
+                     break;
+
+                     case 'multinacional':
+                        $multinacional = new Multinacional(new Black,
+                                                         "picca@gmail.com",
+                                                         "2345",
+                                                         "12333333",
+                                                         "Ricosur");
+
+                     break;
+                  }
+               }
+
+               //pruebas aca!!!!
+
+               echo "<pre>";
+               if(isset($persona)){
+                  echo "<br>";
+                  echo $persona -> mostrar();
+                  echo "<br>";
+                  $persona -> getCuentaAsociada() -> imprimir();
+               }elseif (isset($pyme)) {
+                  echo "<br>";
+                  echo $pyme -> mostrar();
+                  echo "<br>";
+                  $pyme -> getCuentaAsociada() -> imprimir();
+               }else{
+                  echo "<br>";
+                  echo $multinacional -> mostrar();
+                  echo "<br>";
+                  $multinacional -> getCuentaAsociada() -> imprimir();
+               }
+
+         }
 
 
          ?>

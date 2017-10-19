@@ -32,5 +32,7 @@ abstract Class Cliente{
   public function getPass(){
     return $this->pass;
   }
-  
+  public function getCuentaAsociada(){
+     return $this->cuentaAsociada;
+ }
 }
