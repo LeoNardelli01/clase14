@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //Funcion para cargar las clases automaticamente
 spl_autoload_register(function ($nombre_clase) {
     include $nombre_clase . '.php';
@@ -7,6 +7,8 @@ spl_autoload_register(function ($nombre_clase) {
 
 
 if (isset($_POST['crearCuenta'])) {
+   //$_SESSION = $_POST;
+   //var_dump($_SESSION);
    switch ($_POST['cuenta']) {
       case 'classic':
          $cuentaClassic = new Classic();
@@ -29,7 +31,6 @@ if (isset($_POST['crearCuenta'])) {
 
 }
 //echo "<pre>";
-//var_dump($_POST);
 //var_dump($cuentaClassic);
 
 ?>
@@ -79,8 +80,15 @@ if (isset($_POST['crearCuenta'])) {
          </div>
       </div>
       <div class="formulario">
-         <form class="" action="crearCuenta.php" method="post">
-            Elige un tipo de cuenta: <select class="" name="cuenta">
+         <form class="" action="mostrarContenido.php" method="post">
+            Tipo de Cliente: <select class="" name="tipoCliente">
+                  <option value="">Seleccione</option>
+                  <option value="persona">Persona</option>
+                  <option value="pyme">Pyme</option>
+                  <option value="multinacional">Multinacional</option>
+            </select>
+            <br><br>
+            Tipo de cuenta: <select class="" name="cuenta">
                   <option value="">Seleccione</option>
                   <option value="classic">Classic</option>
                   <option value="gold">Gold</option>
@@ -88,14 +96,21 @@ if (isset($_POST['crearCuenta'])) {
                   <option value="black">Black</option>
 
             </select>
+
+            <br>
             <input type="submit" name="crearCuenta" value="Crear Cuenta">
             <br>
 
          <?php
-
+         /*
          if(isset($_POST['crearCuenta'])){
             $cuenta = $_POST['cuenta'];
-            //var_dump($cuenta);
+            $tipoCliente = $_POST['tipoCliente'];
+            $_SESSION['nombre'] = $_POST;
+            echo "<pre>";
+            var_dump($_SESSION);
+         //   header('Location: mostrarContenido.php');
+
             switch ($cuenta) {
                case 'classic':
                //aca hacer las pruebas de movimientos bancarios
@@ -112,7 +127,10 @@ if (isset($_POST['crearCuenta'])) {
                   var_dump($persona);
                   var_dump($pyme);
                   var_dump($multinacional);
-
+                  echo $persona-> mostrar() . "<br>";
+                  echo $pyme -> mostrar() . "<br>";
+                  echo $cuentaClassic-> mostrar() . "<br>";
+                  echo $multinacional -> mostrar() . "<br>";
 
                   break;
                case 'gold':
@@ -144,9 +162,9 @@ if (isset($_POST['crearCuenta'])) {
                   echo "<br><br>";
                   break;
             }
+            */
 
 
-         }
          ?>
          <br><br><br>
 

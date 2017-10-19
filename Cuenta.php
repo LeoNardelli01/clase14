@@ -1,16 +1,19 @@
 <?php
 
-abstract class Cuenta{
+abstract class Cuenta implements Imprimible{
    protected $cbu;
    protected $balance;
    protected $fechaUltimoMov;
-   //protected $cuenta;
+
 
    protected abstract function debitar($monto, $tipoCajero);
    protected abstract function acreditar($monto);
 
    public function __construct(){
       $this ->cbu = mt_rand();
+   }
+   public function mostrar(){
+      return $this ->balance;
    }
 
    public function fechaHora(){

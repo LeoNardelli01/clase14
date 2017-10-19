@@ -1,7 +1,7 @@
 <?php
 require_once('cliente.php');
 
-class Pyme extends cliente{
+class Pyme extends cliente implements Liquidable, Imprimible{
    private $cuit;
    private $razonSocial;
 
@@ -10,6 +10,12 @@ class Pyme extends cliente{
       $this->cuit = $cuit;
       $this->razonSocial = $razonSocial;
 
+   }
+   public function mostrar(){
+      return $this->razonSocial;
+   }
+   public function liquidarHaberes($persona, $monto){
+      
    }
 
    public function getCuit(){

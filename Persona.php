@@ -1,7 +1,7 @@
 <?php
 require_once('cliente.php');
 
-class Persona extends Cliente{
+class Persona extends Cliente implements Imprimible{
 
    Private $nombre;
    Private $apellido;
@@ -15,6 +15,10 @@ class Persona extends Cliente{
       $this->apellido = $apellido;
       $this->documento = $documento;
       $this->nacimiento = $nacimiento;
+   }
+
+   public function mostrar(){
+      return $this->nombre . " " . $this->apellido;
    }
 
    public function setNombre($nombre){

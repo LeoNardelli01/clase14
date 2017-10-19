@@ -1,7 +1,7 @@
 <?php
 require_once('cliente.php');
 
-class Multinacional extends cliente{
+class Multinacional extends cliente implements Imprimible, Liquidable{
 
    private $cuit;
    private $razonSocial;
@@ -11,7 +11,12 @@ class Multinacional extends cliente{
       $this->cuit = $cuit;
       $this->razonSocial = $razonSocial;
    }
+   public function mostrar(){
+      return $this ->razonSocial;
+   }
+   public function liquidarHaberes($persona, $monto){
 
+   }
    public function getCuit(){
       return $this->cuit;
    }
